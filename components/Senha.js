@@ -7,35 +7,9 @@ function gerarSenha(tamanho, numeroMaiusculas, quantidadeNumeros, numeroEspeciai
     const numeros = "0123456789"
 
     const chanceLetraMinuscula = 0.5 // letra minuscula eh escolhida em um range de 0 a 0.5
-    let chanceLetraMaiuscula = 0
-    let chanceNumero = 0.3333 + chanceLetraMaiuscula
-    let chanceEspecial = 0.3333 + chanceLetraMaiuscula + chanceNumero
-    if (numeroMaiusculas > 0 && quantidadeNumeros>0 && numeroEspeciais > 0) {
-        chanceLetraMaiuscula = 0.3333
-        chanceNumero = 0.3333 + chanceLetraMaiuscula
-        chanceEspecial = 0.3333 + chanceNumero
-    } else if (numeroMaiusculas == 0 && quantidadeNumeros>0 && numeroEspeciais>0) {
-        chanceNumero=0.5
-        chanceEspecial=0.5 + chanceNumero
-        chanceLetraMaiuscula=0
-    } else if (numeroMaiusculas>0 && quantidadeNumeros==0 && numeroEspeciais>0) {
-        chanceLetraMaiuscula= 0.5
-        chanceEspecial=0.5 + chanceLetraMaiuscula
-        chanceNumero=0
-    } else if (numeroMaiusculas>0 && quantidadeNumeros>0 && numeroEspeciais==0) {
-        chanceLetraMaiuscula = 0.5
-        chanceNumero = 0.5 + chanceLetraMaiuscula
-        chanceEspecial=0
-    } else if (numeroMaiusculas==0 && quantidadeNumeros>0 && numeroEspeciais==0) {
-        chanceEspecial = chanceLetraMaiuscula = 0
-        chanceNumero=1
-    } else if (numeroMaiusculas==0 && quantidadeNumeros==0 && numeroEspeciais>0) {
-        chanceNumero = chanceLetraMaiuscula = 0
-        chanceEspecial=1
-    } else if (numeroMaiusculas>0 && quantidadeNumeros==0 && numeroEspeciais==0) {
-        chanceEspecial = chanceNumero = 0
-        chanceLetraMaiuscula=1
-    }
+    const chanceLetraMaiuscula = 0.3333
+    const chanceNumero = 0.6666
+    const chanceEspecial = 0.9999
 
     let senha = "" // senha gerada
     let letrasMaiusculasSenha = 0 // numero de letras maiusculas na senha
@@ -63,13 +37,11 @@ function gerarSenha(tamanho, numeroMaiusculas, quantidadeNumeros, numeroEspeciai
                 let letra = letras[Math.floor(Math.random()*letras.length)]
                 senha += letra.toUpperCase()
                 letrasMaiusculasSenha += 1
-                console.log(letra)
-            } else if ((acabouNumeros == false) && ((tipoCaractere>chanceLetraMaiuscula && tipoCaractere<=chanceNumero) || (acabouMaiusculas == true && acabouEspeciais == true))) {
+            } else if ((acabouNumeros == false) && ((tipoCaractere>chanceLetraMaiuscula && tipoCaractere<=chanceNumero) || (acabouEspeciais == true))) {
                 let numero = numeros[Math.floor(Math.random()*numeros.length)]
                 senha += numero
                 numerosSenha += 1
-                console.log(numero)
-            } else if ((acabouEspeciais == false) && ((tipoCaractere>chanceNumero && tipoCaractere<=chanceEspecial) || (acabouMaiusculas == true && acabouNumeros == true))) {
+            } else if ((acabouEspeciais == false) && ((tipoCaractere>chanceNumero && tipoCaractere<=chanceEspecial) || true)) {
                 let caracter = caracteresEspeciais[Math.floor(Math.random()*caracteresEspeciais.length)]
                 senha += caracter
                 caracteresEspeciaisSenha += 1
