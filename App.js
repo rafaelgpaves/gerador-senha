@@ -7,7 +7,8 @@ import { useContext, createContext } from 'react';
 
 export default function App() {
 
-  const[tamanho, setTamanho] = useState(0)
+  const[tamanho, setTamanho] = useState(8)
+  const[maiusculas, setMaiusculas] = useState(0)
 
   return (
     <View style={styles.container}>
@@ -15,13 +16,15 @@ export default function App() {
       {/* <Text>Tamanho da senha:</Text> */}
       {/* <InputSlider /> */}
 
-      <InputSlider tipo="Tamanho:" set={setTamanho}> </InputSlider>
+      <InputSlider tipo="Tamanho:" set={setTamanho} valorInicial="8"> </InputSlider>
 
       {/* <Text>Quantidade de numeros:</Text> */}
       {/* <InputSlider /> */}
       {/* <InputSlider initialValue="0"> </InputSlider> */}
 
-      <Senha tamanho={tamanho}></Senha>
+      <InputSlider tipo="Número de letras maiúsculas:" set={setMaiusculas} valorInicial="0"> </InputSlider>
+
+      <Senha tamanho={tamanho} maiusculas={maiusculas}></Senha>
     </View>
   );
 }

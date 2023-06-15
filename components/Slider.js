@@ -12,7 +12,7 @@ const Input = styled(MuiInput)`
 `;
 
 export default function InputSlider(props) {
-  const [value, setValue] = useState(8);
+  const [value, setValue] = useState(props.valorInicial);
 
   const handleSliderChange = (event, newValue) => {
     setValue(newValue);
