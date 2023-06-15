@@ -10,6 +10,7 @@ export default function App() {
   const[tamanho, setTamanho] = useState(8)
   const[maiusculas, setMaiusculas] = useState(0)
   const[numeros, setNumeros] = useState(0)
+  const[especiais, setEspeciais] = useState(0)
 
   return (
     <View style={styles.container}>
@@ -27,7 +28,9 @@ export default function App() {
 
       <InputSlider tipo="Quantidade de números:" set={setNumeros} valorInicial="0"> </InputSlider>
 
-      <Senha tamanho={tamanho} maiusculas={maiusculas} numeros={numeros}></Senha>
+      <InputSlider tipo="Quantidade de caracteres especiais:" set={setEspeciais} valorInicial="0"> </InputSlider>
+
+      <Senha tamanho={tamanho} maiusculas={maiusculas} numeros={numeros} especiais={especiais}></Senha>
     </View>
   );
 }
