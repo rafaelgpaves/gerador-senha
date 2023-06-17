@@ -15,14 +15,9 @@ export default function App() {
   return (
     <View style={styles.container}>
 
-      {/* <Text>Tamanho da senha:</Text> */}
-      {/* <InputSlider /> */}
+      <Text style={styles.titulo}>Gerador de senhas</Text>
 
       <InputSlider tipo="Tamanho:" set={setTamanho} valorInicial="8" max="100"> </InputSlider>
-
-      {/* <Text>Quantidade de numeros:</Text> */}
-      {/* <InputSlider /> */}
-      {/* <InputSlider initialValue="0"> </InputSlider> */}
 
       <InputSlider tipo="Quantidade de letras maiúsculas:" set={setMaiusculas} valorInicial="0" max={tamanho-numeros-especiais}> </InputSlider>
 
@@ -30,7 +25,8 @@ export default function App() {
 
       <InputSlider tipo="Quantidade de caracteres especiais:" set={setEspeciais} valorInicial="0" max={tamanho-maiusculas-numeros}> </InputSlider>
 
-      <Senha tamanho={tamanho} maiusculas={maiusculas} numeros={numeros} especiais={especiais}></Senha>
+      <Text style={styles.texto}>SENHA GERADA:</Text>
+      <Senha tamanho={tamanho} maiusculas={maiusculas} numeros={numeros} especiais={especiais} style={styles.senha}></Senha>
     </View>
   );
 }
@@ -38,8 +34,17 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#90ee90',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  texto: {
+    fontSize: 24,
+    margin: "3%",
+  },
+  titulo: {
+    fontSize: 40,
+    textDecorationLine: "underline",
+    margin: "5%",
   },
 });

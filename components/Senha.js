@@ -1,4 +1,4 @@
-import { Text, View } from 'react-native';
+import { Text, View, StyleSheet } from 'react-native';
 
 function gerarSenha(tamanho, numeroMaiusculas, quantidadeNumeros, numeroEspeciais) {
 
@@ -51,10 +51,18 @@ function gerarSenha(tamanho, numeroMaiusculas, quantidadeNumeros, numeroEspeciai
     return senha
 }
 
+const styles = StyleSheet.create({
+    senha: {
+        fontSize: 30,
+        fontWeight: "bold",
+        color: "red",
+    },
+});
+
 export default function Senha(props) {
     return (
       <View>
-        <Text>{gerarSenha(props.tamanho, props.maiusculas, props.numeros, props.especiais)}</Text>
+        <Text style={styles.senha}>{gerarSenha(props.tamanho, props.maiusculas, props.numeros, props.especiais)}</Text>
       </View>
     );
   }
