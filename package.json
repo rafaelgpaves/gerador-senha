@@ -11,9 +11,9 @@
   "dependencies": {
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
-    "@expo/webpack-config": "^18.0.1",
+    "@expo/webpack-config": "^18.1.4",
     "@mui/material": "^5.13.5",
-    "expo": "~48.0.18",
+    "expo": "~51.0.2",
     "expo-status-bar": "~1.4.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
